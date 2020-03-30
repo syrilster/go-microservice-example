@@ -11,7 +11,7 @@ func StatusRoute() (route config.Route) {
 	route = config.Route{
 		Path:    "/status",
 		Method:  http.MethodGet,
-		Handler: middlewares.RuntimeHealthCheck,
+		Handler: middlewares.RuntimeHealthCheck(),
 	}
 	return route
 }
