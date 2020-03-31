@@ -19,16 +19,22 @@ COPY . .
 # Build the application
 RUN go build -o main .
 
-# Move to /dist directory as the place for resulting binary folder
-WORKDIR /dist
+# Move to /app directory as the place for resulting binary folder
+WORKDIR /app
 
 # Copy binary from build to main folder
 RUN cp /build/main .
 
 # Build a small image
-FROM scratch
+FROM alpine:latest
 
-COPY --from=base /dist/main /
+RUN apk --no-cache add ca-certificates
+
+# Copy the Pre-built binary file from the previous stage
+COPY --from=base /app/main .
+
+# Expose port 8080 to the outside world
+EXPOSE 8080
 
 # Command to run
-ENTRYPOINT ["/main"]
+ENTRYPOINT ["./main"]
