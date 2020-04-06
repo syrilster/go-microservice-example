@@ -11,6 +11,8 @@ type envConfig struct {
 	ServerPort int    `env:"SERVER_PORT" envDefault:"8080"`
 	Version    string `env:"VERSION" envDefault:"v1"`
 	BaseUrl    string `env:"BASE_URL"`
+
+	CurrencyExchangeEndpoint string `env:"CURRENCY_EXCHANGE_ENDPOINT" envDefault:"http://localhost:8000"`
 }
 
 func newEnvironmentConfig() *envConfig {
