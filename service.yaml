@@ -1,0 +1,11 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: go-micro-service
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 8080
+  selector:
+    app: go-micro-app

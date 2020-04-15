@@ -12,7 +12,7 @@ type envConfig struct {
 	Version    string `env:"VERSION" envDefault:"v1"`
 	BaseUrl    string `env:"BASE_URL"`
 
-	CurrencyExchangeEndpoint string `env:"CURRENCY_EXCHANGE_ENDPOINT" envDefault:"http://localhost:8000"`
+	CurrencyExchangeEndpoint string `env:"CURRENCY_EXCHANGE_ENDPOINT" envDefault:"http://currency-exchange-service.default.svc.cluster.local:8000"`
 }
 
 func newEnvironmentConfig() *envConfig {
