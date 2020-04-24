@@ -1,5 +1,7 @@
 export GO111MODULE=on
-APP=currency-conversion
+APP=currency-conversion-service
+KUBE-PROJECT-ID=kube-go-exp
+GCLOUD-REGION-PREFIX=asia.gcr.io
 
 update-vendor:
 	go mod tidy
@@ -12,7 +14,10 @@ build: clean
 	go build -o ${APP}
 
 container: build
-	docker build -t $(APP):latest .
+	docker build . -t ${GCLOUD-REGION-PREFIX}/${KUBE-PROJECT-ID}/${APP}
+
+push:
+	docker push ${GCLOUD-REGION-PREFIX}/${KUBE-PROJECT-ID}/${APP}
 
 test:
 	go test
@@ -22,3 +27,4 @@ test:
 	build \
 	test \
 	container \
+	push \
