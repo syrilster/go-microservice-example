@@ -12,3 +12,6 @@ currency-exchange (Java) service to get the currency day rates for the conversio
     Fix:
     gcloud container clusters get-credentials YOURCLUSTERHERE --zone YOURCLUSTERZONEHERE
     ```
+# References
+* https://medium.com/platformer-blog/enable-rolling-updates-in-kubernetes-with-zero-downtime-31d7ec388c81
+* https://dev.to/azure/how-to-access-your-kubernetes-applications-using-services-5626
