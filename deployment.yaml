@@ -13,8 +13,8 @@ spec:
         app: go-micro-app
     spec:
       containers:
-        - name: go-micro-app
-          image: syrils/go-micro:latest
+        - name: "go-micro-sha256-1"
+          image: "asia.gcr.io/kube-go-exp/go-micro@sha256:ab67aebae0eb612c565876029a6d9996234862b65c5745334fe772249cd0198d"
           ports:
             - containerPort: 8080
           env:
