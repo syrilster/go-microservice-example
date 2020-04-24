@@ -67,5 +67,5 @@ func (c *client) GetExchangeRate(ctx context.Context, request Request) (*Respons
 }
 
 func (c *client) buildCurrencyExchangeEndpoint(from string, to string) (endpoint string) {
-	return c.URL + "/currency-exchange/from/" + from + "/to/" + to
+	return c.URL + "/v1/currency-exchange/from/" + from + "/to/" + to
 }
