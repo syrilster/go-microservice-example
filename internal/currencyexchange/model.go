@@ -6,7 +6,7 @@ type Request struct {
 }
 
 type Response struct {
-	FromCurrency       string  `json:"from"`
-	ToCurrency         string  `json:"to"`
-	ConversionMultiple float64 `json:"conversionMultiple"`
+	FromCurrency       string `json:"from"`
+	ToCurrency         string `json:"to"`
+	ConversionMultiple string `json:"conversion_multiple"`
 }

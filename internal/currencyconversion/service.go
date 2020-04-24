@@ -5,6 +5,7 @@ import (
 	log "github.com/sirupsen/logrus"
 	"github.com/syrilster/go-microservice-example/internal/currencyexchange"
 	"math"
+	"strconv"
 )
 
 type Service struct {
@@ -26,7 +27,13 @@ func (service Service) FetchExchangeRate(ctx context.Context, request Request) (
 		return nil, err
 	}
 
-	response := &Response{Amount: calculateAmount(request.Quantity, currencyExchangeResp.ConversionMultiple)}
+	conversionMultiple, err := strconv.ParseFloat(currencyExchangeResp.ConversionMultiple, 64)
+	if err != nil {
+		ctxLogger.Infof("Failed to un marshall the exchange rate: %v", err)
+		return nil, err
+	}
+
+	response := &Response{Amount: calculateAmount(request.Quantity, conversionMultiple)}
 	return response, nil
 }
 
