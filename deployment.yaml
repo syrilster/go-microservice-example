@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: "currency-conversion-service-sha256-1"
-          image: "asia.gcr.io/kube-go-exp/currency-conversion-service@sha256:ab67aebae0eb612c565876029a6d9996234862b65c5745334fe772249cd0198d"
+          image: "asia.gcr.io/kube-go-exp/currency-conversion-service@sha256:47b3059e5e86da409ee858f5edecbba88bb29e52b4180bef6ff6e8ada7a5169c"
           ports:
             - containerPort: 8080
           env:
