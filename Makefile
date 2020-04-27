@@ -20,7 +20,7 @@ push:
 	docker push ${GCLOUD-REGION-PREFIX}/${KUBE-PROJECT-ID}/${APP}
 
 test:
-	go test
+	go test -v ./... 2>&1 | tee test-output.txt
 
 .PHONY: \
 	clean \
