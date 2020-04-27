@@ -1,0 +1,21 @@
+# github.com/syrilster/go-microservice-example/internal/config
+internal/config/envconfig.go:21:3: Fatal call has possible formatting directive %v
+?   	github.com/syrilster/go-microservice-example	[no test files]
+?   	github.com/syrilster/go-microservice-example/internal	[no test files]
+=== RUN   TestCurrencyExchangeClient
+=== RUN   TestCurrencyExchangeClient/Fetch_Exchange_Rate
+=== RUN   TestCurrencyExchangeClient/Fetch_Exchange_Rate/Success
+=== RUN   TestCurrencyExchangeClient/Fetch_Exchange_Rate/Should_return_error_for_invalid_response
+time="2020-04-27T15:35:45+10:00" level=error msg="there was an error un marshalling the currency exchange API resp. invalid character '}' looking for beginning of object key string" error="invalid character '}' looking for beginning of object key string"
+=== RUN   TestCurrencyExchangeClient/Fetch_Exchange_Rate/Should_return_error_for_http_client_error
+time="2020-04-27T15:35:45+10:00" level=error msg="there was an error calling the currency exchange API. Post http://test-url.com/: test error" error="Post http://test-url.com/: test error"
+=== RUN   TestCurrencyExchangeClient/Fetch_Exchange_Rate/Should_return_error_when_exchange_rate_not_found
+time="2020-04-27T15:35:45+10:00" level=info msg="status returned from currency exchange service Rate not available!!"
+--- PASS: TestCurrencyExchangeClient (0.00s)
+    --- PASS: TestCurrencyExchangeClient/Fetch_Exchange_Rate (0.00s)
+        --- PASS: TestCurrencyExchangeClient/Fetch_Exchange_Rate/Success (0.00s)
+        --- PASS: TestCurrencyExchangeClient/Fetch_Exchange_Rate/Should_return_error_for_invalid_response (0.00s)
+        --- PASS: TestCurrencyExchangeClient/Fetch_Exchange_Rate/Should_return_error_for_http_client_error (0.00s)
+        --- PASS: TestCurrencyExchangeClient/Fetch_Exchange_Rate/Should_return_error_when_exchange_rate_not_found (0.00s)
+PASS
+ok  	github.com/syrilster/go-microservice-example/internal/currencyexchange	(cached)
