@@ -16,6 +16,12 @@ func handler(rateFetcher ExchangeRateFetcher) func(w http.ResponseWriter, r *htt
 
 		request := parseFetchRequest(r)
 
+		if err := request.Validate(); err != nil {
+			contextLogger.WithError(err).Error("Validation failed")
+			util.WithBodyAndStatus(nil, http.StatusBadRequest, w)
+			return
+		}
+
 		calculatedAmount, err := rateFetcher.FetchExchangeRate(ctx, request)
 		if err != nil {
 			contextLogger.WithError(err).Error("Failed to fetch currency exchange rates")

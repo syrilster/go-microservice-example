@@ -1,7 +1,12 @@
+# github.com/asaskevich/govalidator v0.0.0-20200108200545-475eaeb16496
+github.com/asaskevich/govalidator
 # github.com/caarlos0/env v3.5.0+incompatible
 github.com/caarlos0/env
 # github.com/davecgh/go-spew v1.1.1
 github.com/davecgh/go-spew/spew
+# github.com/go-ozzo/ozzo-validation v3.6.0+incompatible
+github.com/go-ozzo/ozzo-validation
+github.com/go-ozzo/ozzo-validation/is
 # github.com/gorilla/handlers v1.4.0
 github.com/gorilla/handlers
 # github.com/gorilla/mux v1.7.0
