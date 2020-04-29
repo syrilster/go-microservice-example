@@ -1,20 +1,24 @@
 name: Build and test Go
 on: [push, pull_request]
 jobs:
-  lint:
-    name: Lint
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Set up Go
-      - uses: actions/setup-go@v2
+      - name: Set up Go 1.13
+        uses: actions/setup-go@v1
         with:
-          go-version: '^1.13.1' # The Go version to download (if necessary) and use.
+          go-version: 1.13
 
-      - name: Check out code
-        uses: actions/checkout@v2
+      - name: Check out source code
+        uses: actions/checkout@v1
 
-      - name: Lint Go Code
-        run: |
-          export PATH=$PATH:$(go env GOPATH)/bin # temporary fix. See https://github.com/actions/setup-go/issues/14
-          go get -u golang.org/x/lint/golint 
-          make lint
+      - name: Build
+				env:
+					GOPROXY: "https://proxy.golang.org"
+        run: go build .
+
+      - name: Test
+				env:
+					GOPROXY: "https://proxy.golang.org"
+        run: go test -v .
