@@ -1,3 +1,5 @@
+[![Actions Status](https://xxx.execute-api.us-west-2.amazonaws.com/production/badge/syrilster/go-microservice-example)](https://xxx.execute-api.us-west-2.amazonaws.com/production/results/{owner}/{repo})
+
 # go microservice example
 
 This is an API layer built to demonstrate service to service call in Golang. This is a currency conversion service which calls the
