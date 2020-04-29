@@ -1,4 +1,5 @@
 export GO111MODULE=on
+export GOFLAGS=-mod=vendor
 APP=currency-conversion-service
 KUBE-PROJECT-ID=kube-go-exp
 GCLOUD-REGION-PREFIX=asia.gcr.io
