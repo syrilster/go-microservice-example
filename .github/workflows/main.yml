@@ -19,7 +19,7 @@ jobs:
       - name: Build
         env:
           GOPROXY: "https://proxy.golang.org"
-        run: go build -mod=vendor .
+        run: make build
 
       - name: Staticcheck
         run: |
@@ -31,4 +31,4 @@ jobs:
       - name: Test
         env:
           GOPROXY: "https://proxy.golang.org"
-        run: go test -mod=vendor -v ./... 2>&1 | tee test-output.txt
+        run: make
