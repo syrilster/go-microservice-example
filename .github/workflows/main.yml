@@ -32,9 +32,8 @@ jobs:
 
       - name: Calc coverage
         run: |
-          export PATH=$PATH:$(go env GOPATH)/bin
-          go test -short -coverprofile cover.out -covermode=atomic
-          cat cover.out >> coverage.txt
+          go test -v -coverprofile=profile.cov ./...
+          cat profile.cov >> coverage.txt
 
       - name: Upload Coverage report to CodeCov
         uses: codecov/codecov-action@v1.0.0
