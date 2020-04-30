@@ -1,4 +1,4 @@
-[![Actions Status](https://xxx.execute-api.us-west-2.amazonaws.com/production/badge/syrilster/go-microservice-example)](https://xxx.execute-api.us-west-2.amazonaws.com/production/results/{owner}/{repo})
+[![Actions Status](https://github.com/syrilster/go-microservice-example/workflows/Build and test Go/badge.svg)](https://github.com/syrilster/go-microservice-example/actions)
 
 # go microservice example
 
