@@ -1,4 +1,4 @@
-[![Actions Status](https://github.com/syrilster/go-microservice-example/workflows/Build and test Go/badge.svg)](https://github.com/syrilster/go-microservice-example/actions)
+[![Actions Status](https://github.com/syrilster/go-microservice-example/workflows/Build%20and%20test%20Go/badge.svg)](https://github.com/syrilster/go-microservice-example/actions)
 
 # go microservice example
 
