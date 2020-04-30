@@ -28,7 +28,7 @@ jobs:
       - name: Test
         env:
           GOPROXY: "https://proxy.golang.org"
-        run: make test
+        run: make test-coverage
 
       - name: Upload Coverage report to CodeCov
         uses: codecov/codecov-action@v1.0.0

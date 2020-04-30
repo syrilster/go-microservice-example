@@ -27,7 +27,7 @@ test:
 	go test -v ./... 2>&1 | tee test-output.txt
 
 test-coverage:
-	@go test -short -coverprofile coverage.txt -covermode=atomic ${PKG_LIST}
+	@go test -short -coverprofile=coverage.txt -covermode=atomic ${PKG_LIST}
 
 
 .PHONY: \
