@@ -13,12 +13,12 @@ import (
 )
 
 // MockHTTPClient is to mock the external calls
-type MockHttpClient struct {
+type MockHTTPClient struct {
 	mock.Mock
 }
 
 // Do is to mock the external calls
-func (mockClient *MockHttpClient) Do(r *http.Request) (*http.Response, error) {
+func (mockClient *MockHTTPClient) Do(r *http.Request) (*http.Response, error) {
 	args := mockClient.Called(r)
 	return args.Get(0).(*http.Response), args.Error(1)
 }
@@ -46,22 +46,22 @@ func TestCurrencyExchangeClient(t *testing.T) {
 	}
 
 	t.Run("Fetch Exchange Rate", func(t *testing.T) {
-		var validJson = `{
+		var validJSON = `{
 						  "from": "AED",
 						  "to": "INR",
 						  "conversion_multiple" : "20.72"
 						}`
 		t.Run("Success", func(t *testing.T) {
-			mockHttpClient := new(MockHttpClient)
+			mockHTTPClient := new(MockHTTPClient)
 			mockResponse := &http.Response{
 				StatusCode: 200,
-				Body:       ioutil.NopCloser(bytes.NewBuffer([]byte(validJson))),
+				Body:       ioutil.NopCloser(bytes.NewBuffer([]byte(validJSON))),
 			}
 
-			mockHttpClient.On("Do", mock.Anything).Return(mockResponse, nil)
+			mockHTTPClient.On("Do", mock.Anything).Return(mockResponse, nil)
 			client := client{
 				URL:         testURL,
-				HttpCommand: mockHttpClient,
+				HTTPCommand: mockHTTPClient,
 			}
 
 			actual, err := client.GetExchangeRate(context.Background(), request)
@@ -70,16 +70,16 @@ func TestCurrencyExchangeClient(t *testing.T) {
 		})
 
 		t.Run("Should return error for invalid response", func(t *testing.T) {
-			mockHttpClient := new(MockHttpClient)
+			mockHTTPClient := new(MockHTTPClient)
 			mockResponse := &http.Response{
 				StatusCode: 200,
 				Body:       ioutil.NopCloser(bytes.NewBuffer([]byte(invalidJSONResponse))),
 			}
 
-			mockHttpClient.On("Do", mock.Anything).Return(mockResponse, nil)
+			mockHTTPClient.On("Do", mock.Anything).Return(mockResponse, nil)
 			client := client{
 				URL:         testURL,
-				HttpCommand: mockHttpClient,
+				HTTPCommand: mockHTTPClient,
 			}
 
 			_, err := client.GetExchangeRate(context.Background(), request)
@@ -87,7 +87,7 @@ func TestCurrencyExchangeClient(t *testing.T) {
 		})
 
 		t.Run("Should return error for http client error", func(t *testing.T) {
-			mockHTTPClient := new(MockHttpClient)
+			mockHTTPClient := new(MockHTTPClient)
 			mockHTTPClient.On("Do", mock.Anything).Return(&http.Response{},
 				&url.Error{Op: "Post", URL: testURL, Err: errors.New("test error")})
 			client := client{testURL, mockHTTPClient}
@@ -97,17 +97,17 @@ func TestCurrencyExchangeClient(t *testing.T) {
 		})
 
 		t.Run("Should return error when exchange rate not found", func(t *testing.T) {
-			mockHttpClient := new(MockHttpClient)
+			mockHTTPClient := new(MockHTTPClient)
 			mockResponse := &http.Response{
 				Status:     "Rate not available!!",
 				StatusCode: 400,
 				Body:       ioutil.NopCloser(bytes.NewBuffer([]byte(""))),
 			}
 
-			mockHttpClient.On("Do", mock.Anything).Return(mockResponse, nil)
+			mockHTTPClient.On("Do", mock.Anything).Return(mockResponse, nil)
 			client := client{
 				URL:         testURL,
-				HttpCommand: mockHttpClient,
+				HTTPCommand: mockHTTPClient,
 			}
 
 			response, err := client.GetExchangeRate(context.Background(), request)

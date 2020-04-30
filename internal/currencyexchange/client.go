@@ -17,13 +17,13 @@ type ClientInterface interface {
 func NewClient(endpoint string, httpCommand customhttp.HTTPCommand) *client {
 	return &client{
 		URL:         endpoint,
-		HttpCommand: httpCommand,
+		HTTPCommand: httpCommand,
 	}
 }
 
 type client struct {
 	URL         string
-	HttpCommand customhttp.HTTPCommand
+	HTTPCommand customhttp.HTTPCommand
 }
 
 func (c *client) GetExchangeRate(ctx context.Context, request Request) (*Response, error) {
@@ -34,7 +34,7 @@ func (c *client) GetExchangeRate(ctx context.Context, request Request) (*Respons
 		return nil, err
 	}
 
-	resp, err := c.HttpCommand.Do(httpRequest)
+	resp, err := c.HTTPCommand.Do(httpRequest)
 	if err != nil {
 		contextLogger.WithError(err).Errorf("there was an error calling the currency exchange API. %v", err)
 		return nil, err

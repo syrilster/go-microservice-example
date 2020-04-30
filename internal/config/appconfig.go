@@ -12,10 +12,12 @@ type ApplicationConfig struct {
 	currencyExchangeClient currencyexchange.ClientInterface
 }
 
+//Version returns application version
 func (cfg *ApplicationConfig) Version() string {
 	return cfg.envValues.Version
 }
 
+//ServerPort returns the port no to listen for requests
 func (cfg *ApplicationConfig) ServerPort() int {
 	return cfg.envValues.ServerPort
 }
@@ -24,10 +26,12 @@ func (cfg *ApplicationConfig) BaseURL() string {
 	return cfg.envValues.BaseUrl
 }
 
+//CurrencyExchangeClient to connect to exchange
 func (cfg *ApplicationConfig) CurrencyExchangeClient() currencyexchange.ClientInterface {
 	return cfg.currencyExchangeClient
 }
 
+//NewApplicationConfig loads config values from environment and initialises config
 func NewApplicationConfig() *ApplicationConfig {
 	envValues := newEnvironmentConfig()
 	httpCommand := NewHttpCommand()

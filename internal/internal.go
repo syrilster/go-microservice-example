@@ -9,6 +9,7 @@ import (
 	"net/http"
 )
 
+//StatusRoute health check route
 func StatusRoute() (route config.Route) {
 	route = config.Route{
 		Path:    "/status",

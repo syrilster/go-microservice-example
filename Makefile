@@ -14,6 +14,9 @@ update-vendor:
 clean:
 	rm -f ${APP}
 
+lint:
+	golint -set_exit_status ${PKG_LIST}
+
 build: clean
 	go build -o ${APP}
 
@@ -37,3 +40,4 @@ test-coverage:
 	test-coverage \
 	container \
 	push \
+	lint \

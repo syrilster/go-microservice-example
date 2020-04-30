@@ -46,7 +46,7 @@ func (s *Server) WithRoutes(basePath string, routes ...Route) *Server {
 	return s
 }
 
-//start the server on the defined port
+//Start the server on the defined port
 func (s *Server) Start(addr string, port int) {
 	panic(
 		http.ListenAndServe(
