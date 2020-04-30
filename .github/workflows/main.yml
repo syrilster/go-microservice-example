@@ -21,6 +21,13 @@ jobs:
           GOPROXY: "https://proxy.golang.org"
         run: go build -mod=vendor .
 
+      - name: Staticcheck
+        run: |
+          # add executables installed with go get to PATH
+          export PATH=${PATH}:`go env GOPATH`/bin
+          go get -u honnef.co/go/tools/cmd/staticcheck
+          staticcheck ./...
+
       - name: Test
         env:
           GOPROXY: "https://proxy.golang.org"
