@@ -3,7 +3,6 @@ export GOFLAGS=-mod=vendor
 PROJECT_NAME="go-microservice-example"
 PKG= "github.com/syrilster/$(PROJECT_NAME)"
 PKG_LIST=$(shell go list ${PKG}/... | grep -v /vendor/)
-GO_FILES=$(shell find . -name '*.go' | grep -v /vendor/ | grep -v _test.go)
 APP=currency-conversion-service
 KUBE-PROJECT-ID=kube-go-exp
 GCLOUD-REGION-PREFIX=asia.gcr.io
