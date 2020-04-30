@@ -1,5 +1,7 @@
 [![Actions Status](https://github.com/syrilster/go-microservice-example/workflows/Build%20and%20test%20Go/badge.svg)](https://github.com/syrilster/go-microservice-example/actions)
 
+[![codecov](https://codecov.io/gh/syrilster/go-microservice-example/branch/master/graph/badge.svg)](https://codecov.io/gh/syrilster/go-microservice-example)
+
 # go microservice example
 
 This is an API layer built to demonstrate service to service call in Golang. This is a currency conversion service which calls the
