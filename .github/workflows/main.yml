@@ -28,15 +28,10 @@ jobs:
       - name: Test
         env:
           GOPROXY: "https://proxy.golang.org"
-        run: make test
-
-      - name: Calc coverage
-        run: |
-          go test -v -coverprofile=profile.cov ./...
-          cat profile.cov >> coverage.txt
+        run: make test-coverage
 
       - name: Upload Coverage report to CodeCov
         uses: codecov/codecov-action@v1.0.0
         with:
           token: ${{secrets.CODECOV_TOKEN}}
-          file: ./coverage.txt
+          file: ./test-output.txt
