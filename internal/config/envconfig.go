@@ -18,7 +18,7 @@ type envConfig struct {
 func newEnvironmentConfig() *envConfig {
 	cfg := &envConfig{}
 	if err := env.Parse(cfg); err != nil {
-		log.Fatal("cannot find configs for server: %v \n", err)
+		log.Fatal("cannot find configs for server: \n", err)
 	}
 	return cfg
 }
